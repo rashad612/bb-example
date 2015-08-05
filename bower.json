@@ -22,8 +22,10 @@
   ],
   "dependencies": {
     "backbone": "~1.2.1",
-    "handlebars": "~3.0.3",
     "jquery": "~2.1.4",
-    "backbone.localstorage": "~1.1.16"
+    "backbone.localstorage": "~1.1.16",
+    "bootstrap": "~3.3.5",
+    "dustjs-linkedin": "~2.7.2",
+    "dustjs-helpers": "~1.7.3"
   }
 }
