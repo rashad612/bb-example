@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>BackboneJS Example</title>
+  <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="bootstrap/dist/css/bootstrap-theme.min.css">
+</head>
+<body>
+  <div id="cart-app" class="container">
+    <div id="cart-summary" class="">
+       <div class="alert alert-info" role="alert">You have <span class="badge">{{counter}}</span> item(s)!</div>
+       <div class="alert alert-warning" role="alert">Your cart is empty!</div>
+    </div>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <button type="button" class="btn btn-primary" id="addItem" data-toggle="modal" data-target="#basicModal "><span class="glyphicon glyphicon-plus"></span>Add Item</button>
+    <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove"></span></button>
+                <h4 class="modal-title" id="myModalLabel">Add Item</h4>
+                </div>
+                <form id="form" name="form">
+                  <div class="modal-body">
+                      
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <input type="submit" class="btn btn-primary" id="save" value="Save changes" />
+                  </div>
+                </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Active Units</h3>
+      </div>
+      <div class="panel-body">
+        <ul id="cart-active list-group">
+          <li class="list-group-item row">
+            <div class="col-xs-2">Item1</div>
+            <div class="col-xs-2">50</div>
+            <div class="col-xs-2">
+              <select class="form-control">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <div class="col-xs-2">
+              <a href="#" title="delete" class="del-item">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+              </a>
+            </div>
+            <div class="col-xs-2">
+              <a href="#" title="delete" class="del-item">
+                <a href="#" title="Save for later" class="op">
+                  <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                </a>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+   <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Inactive Units</h3>
+      </div>
+      <div class="panel-body">
+        <ul id="cart-inactive list-group ">
+          <li class="list-group-item row">
+            <div class="col-xs-2">Item1</div>
+            <div class="col-xs-2">50</div>
+            <div class="col-xs-2">
+              <select class="form-control" disabled="disabled">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <div class="col-xs-2">
+              <a href="#" title="delete" class="del-item">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+              </a>
+            </div>
+            <div class="col-xs-2">
+              <a href="#" title="delete" class="del-item">
+                <a href="#" title="Add to cart" class="op">
+                  <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+                </a>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+  <!-- templates -->
+    <script id="tmpl-summary" type="text/template">
+      {{#if counter}}
+        You have <span class="badge">{{counter}}</span> item(s)!
+      {{else}} 
+        Your cart is empty!
+      {{/if}}
+    </script>
+  <!-- /templates -->
+  <script type="text/javascript" src="jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="handlebars/handlebars.min.js"></script>
+  <script type="text/javascript" src="underscore/underscore-min.js"></script>
+  <script type="text/javascript" src="backbone/backbone-min.js"></script>
+  <script type="text/javascript" src="backbone.localstorage/backbone.localStorage-min.js"></script>
+  <script type="text/javascript" src="views/app-view.js"></script>
+  <script type="text/javascript" src="index.js"></script>
+</body>
+</html>

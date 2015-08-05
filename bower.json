@@ -1,0 +1,29 @@
+{
+  "name": "bb",
+  "version": "1.0.0",
+  "description": "My BackboneJS test.",
+  "main": "lib/index.js",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "backbone"
+  ],
+  "authors": [
+    "Rashad Majali <rmajali@uba.com.jo>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone": "~1.2.1",
+    "handlebars": "~3.0.3",
+    "jquery": "~2.1.4",
+    "backbone.localstorage": "~1.1.16"
+  }
+}
