@@ -1,2 +1,6 @@
 # bb-example
-BackboneJS Example
+
+BackboneJS Example app.
+
+* Branch `master`: Native Backbone.
+* Branch `m`: MarionetteJS.
