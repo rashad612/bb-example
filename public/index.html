@@ -4,12 +4,27 @@
   <meta charset="utf-8">
   <title>BackboneJS Example</title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
-  <!-- <link rel="stylesheet" href="bootstrap/dist/css/bootstrap-theme.min.css"> -->
 </head>
 <body>
   <div id="cart-app" class="container">
-    <div id="cart-summary" class="">
-    
+    <div id="cart-summary" class=""></div>
+    <div id="cart-active" class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Active Units</h3>
+      </div>
+      <div class="panel-body">
+        <ul id="active-list" class="list-group">
+        </ul>
+      </div>
+    </div>
+    <div id="cart-inactive" class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Inactive Units</h3>
+      </div>
+      <div class="panel-body">
+        <ul id="inactive-list" class="list-group">
+        </ul>
+      </div>
     </div>
 
     <div class="panel panel-default">
@@ -33,7 +48,7 @@
                       </div>
                       <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <input type="submit" class="btn btn-primary" id="save" value="Save changes" />
+                          <input type="submit" class="btn btn-primary" id="save" name="save" value="Save changes">
                       </div>
                     </form>
             </div>
@@ -44,54 +59,42 @@
   </div>
   <!-- templates -->
   <script id="tmpl-summary" type="text/template">
-    {?counter}
-    <div class="alert alert-info" role="alert">
-      You have <span class="badge">{counter}</span> {@eq key=counter value=1}item{:else}items{/eq}!</div>
+    {@gt key=counter value=0}
+      <div class="alert alert-info" role="alert">
+        You have <span class="badge">{counter}</span> {@eq key=counter value=1}item{:else}items{/eq}!
+      </div>
     {:else} 
       <div class="alert alert-warning" role="alert">Your cart is empty!</div>
-    {/counter}
-  </script>
-  <script id="tmpl-units" type="text/template">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">{{#if active}}Active{{else}}Inactive{{/if}} Units</h3>
-      </div>
-      <div class="panel-body">
-        <ul id="cart-{{#if active}}active{{else}}inactive{{/if}} list-group">
-        </ul>
-      </div>
-    </div>
+    {/gt}
   </script>
   <script id="tmpl-unit" type="text/template">
-    <li class="list-group-item row">
-      <div class="col-xs-2">{{title}}</div>
-      <div class="col-xs-2">{{price}}</div>
-      <div class="col-xs-2">
-        {{if active}}
-          <select class="form-control">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-        {{else}}
-          {{qty}}
-        {{/if}}
-      </div>
-      <div class="col-xs-2">
-        <a href="#" title="delete" class="del-item">
-          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    <div class="col-xs-2">{title}</div>
+    <div class="col-xs-2">{price}</div>
+    <div class="col-xs-2">
+      {?active}
+        <select class="form-control">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      {:else}
+        <strong>{qty}</strong>
+      {/active}
+    </div>
+    <div class="col-xs-2">
+      <a href="#" title="delete" class="del-item">
+        <span class="glyphicon glyphicon-remove remove" aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="col-xs-2">
+      <a href="#" title="toggle" class="del-item">
+        <a href="#" title="{?active}Save for later{:else}Move to active{/active}" class="op toggle">
+          <span class="glyphicon glyphicon-chevron-{?active}down{:else}up{/active}" aria-hidden="true"></span>
         </a>
-      </div>
-      <div class="col-xs-2">
-        <a href="#" title="delete" class="del-item">
-          <a href="#" title="Save for later" class="op">
-            <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
-          </a>
-        </a>
-      </div>
-    </li>
+      </a>
+    </div>
   </script>
   <!-- /templates -->
   <script type="text/javascript" src="jquery/dist/jquery.min.js"></script>
