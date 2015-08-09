@@ -72,12 +72,12 @@
     <div class="col-xs-2">{price}</div>
     <div class="col-xs-2">
       {?active}
-        <select class="form-control">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+        <select class="form-control qty-select">
+          <option value="1"{@eq key=qty value="1"} selected{/eq}>1</option>
+          <option value="2"{@eq key=qty value="2"} selected{/eq}>2</option>
+          <option value="3"{@eq key=qty value="3"} selected{/eq}>3</option>
+          <option value="4"{@eq key=qty value="4"} selected{/eq}>4</option>
+          <option value="5"{@eq key=qty value="5"} selected{/eq}>5</option>
         </select>
       {:else}
         <strong>{qty}</strong>
