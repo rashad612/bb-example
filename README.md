@@ -2,9 +2,6 @@
 
 BackboneJS Example app.
 
-* Branch `master`: Native Backbone.
-* Branch `m`: MarionetteJS.
-
 ### Installation
 
 ```bash
